@@ -1,5 +1,8 @@
 require("dotenv").config();
+require("express-async-errors");
 const express = require("express");
+
+const errorHandler = require("./middleware/errorHandler");
 
 const { PORT } = require("./util/config");
 const { connectToDatabase } = require("./util/db");
@@ -18,5 +21,7 @@ const start = async () => {
     console.log(`Server running on port ${PORT}`);
   });
 };
+
+app.use(errorHandler);
 
 start();

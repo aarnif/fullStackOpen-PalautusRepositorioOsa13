@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "author": null,
-    "url": "https://fakeaddress.com",
+    "url": null,
     "title": "A new blog post",
     "likes": 10
 }
