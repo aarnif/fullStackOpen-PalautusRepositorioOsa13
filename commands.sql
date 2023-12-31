@@ -10,6 +10,6 @@ insert into blogs (author, url, title) values ('Edsger W. Dijkstra', 'http://www
 
 insert into blogs (author, url, title, likes) values ('', 'https://reactpatterns.com/', 'React patterns', 10);
 
-insert into users (name, username, created_at, updated_at) values ('John Doe', 'johnD', current_timestamp, current_timestamp);
+insert into users (name, username, created_at, updated_at) values ('John Doe', 'johnD@gmail.com', current_timestamp, current_timestamp);
 
-insert into users (name, username, created_at, updated_at) values ('Jane Doe', 'janeD', current_timestamp, current_timestamp);
+insert into users (name, username, created_at, updated_at) values ('Jane Doe', 'janeD@gmail.com', current_timestamp, current_timestamp);

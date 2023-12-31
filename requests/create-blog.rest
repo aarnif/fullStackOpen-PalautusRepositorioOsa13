@@ -1,9 +1,10 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: ""
 
 {
     "author": null,
-    "url": null,
+    "url": "http://fakeblogaddress.com",
     "title": "A new blog post",
     "likes": 10
 }
