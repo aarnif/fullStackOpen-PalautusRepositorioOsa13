@@ -1,9 +1,9 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: ""
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJqaW1teURAZ21haWwuY29tIiwiaWF0IjoxNzA0MDM3Njk0fQ._QmCRKVREeziHfuIkKpgzf5_gzLmu-86IKOE6xY-FCc
 
 {
-    "author": null,
+    "author": "React",
     "url": "http://fakeblogaddress.com",
     "title": "A new blog post",
     "likes": 10
