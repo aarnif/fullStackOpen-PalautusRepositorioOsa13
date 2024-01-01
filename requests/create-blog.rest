@@ -1,10 +1,11 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqb2huREBnbWFpbC5jb20iLCJpYXQiOjE3MDQxMDEzMTR9.-H11xYCHhdr1HGJcOHcqvpfyrl7raNLEnoQw9ezKm08
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJqb2huREBnbWFpbC5jb20iLCJpYXQiOjE3MDQxMTcxMDZ9.c6wTDGWjh-_ZvqJzvfbHdOSlLwnDP8wnSLMgFb0-_6Y 
 
 {
     "author": "Jimmy Doolittle",
     "url": "http://fakeblogaddress.com",
     "title": "A new blog post",
-    "likes": 10
+    "likes": 10,
+    "year": 2022
 }
