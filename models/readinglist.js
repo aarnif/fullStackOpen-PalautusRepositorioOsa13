@@ -21,10 +21,9 @@ ReadingList.init(
       allowNull: false,
       references: { model: "blogs", key: "id" },
     },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "unread",
+    read: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   },
   {

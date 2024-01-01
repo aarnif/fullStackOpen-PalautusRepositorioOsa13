@@ -18,10 +18,9 @@ module.exports = {
         allowNull: false,
         references: { model: "blogs", key: "id" },
       },
-      state: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        default: "unread",
+      read: {
+        type: DataTypes.BOOLEAN,
+        default: false,
       },
     });
   },
