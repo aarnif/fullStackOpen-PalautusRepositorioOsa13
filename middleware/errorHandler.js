@@ -6,6 +6,8 @@ const errorHandler = (error, request, response, next) => {
     return response.status(400).send({ error: error.message });
   } else if (error.name === "TypeError") {
     return response.status(500).send({ error: error.message });
+  } else if (error.name === "UserError") {
+    return response.status(500).send({ error: error.message });
   }
 
   next(error);
