@@ -21,6 +21,11 @@ ReadingList.init(
       allowNull: false,
       references: { model: "blogs", key: "id" },
     },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "unread",
+    },
   },
   {
     sequelize,
