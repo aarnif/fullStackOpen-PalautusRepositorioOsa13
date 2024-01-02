@@ -5,6 +5,7 @@ const { Op } = require("sequelize");
 
 const { Blog, User } = require("../models");
 const tokenExtractor = require("../middleware/tokenExtractor");
+const checkUserValidity = require("../middleware/checkUserValidity");
 
 const blogFinder = async (req, res, next) => {
   req.blog = await Blog.findByPk(req.params.id);
@@ -38,7 +39,7 @@ router.get("/", async (req, res) => {
   res.json(blogs);
 });
 
-router.post("/", tokenExtractor, async (req, res, next) => {
+router.post("/", tokenExtractor, checkUserValidity, async (req, res, next) => {
   console.log(req.body);
   const user = await User.findByPk(req.decodedToken.id);
   const blog = await Blog.create({
@@ -48,15 +49,21 @@ router.post("/", tokenExtractor, async (req, res, next) => {
   return res.json(blog);
 });
 
-router.delete("/:id", blogFinder, tokenExtractor, async (req, res) => {
-  const deleteBlog = await Blog.destroy({
-    where: { id: req.params.id },
-  });
-  if (deleteBlog === 1) {
-    return res.json({ result: `blog with id ${req.params.id} deleted` });
+router.delete(
+  "/:id",
+  blogFinder,
+  tokenExtractor,
+  checkUserValidity,
+  async (req, res) => {
+    const deleteBlog = await Blog.destroy({
+      where: { id: req.params.id },
+    });
+    if (deleteBlog === 1) {
+      return res.json({ result: `blog with id ${req.params.id} deleted` });
+    }
+    return res.status(400).json({ error: `invalid id!` });
   }
-  return res.status(400).json({ error: `invalid id!` });
-});
+);
 
 router.put("/:id", blogFinder, async (req, res) => {
   req.blog.likes = req.body.likes;
