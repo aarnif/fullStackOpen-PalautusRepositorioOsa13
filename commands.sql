@@ -20,8 +20,8 @@ CREATE TABLE reading_list (
     foreign key (blog_id) references blogs(blog_id)
 );
 
-insert into users (name, username, created_at, updated_at) values ('John Doe', 'johnD@gmail.com', current_timestamp, current_timestamp);
-insert into users (name, username, created_at, updated_at) values ('Jane Doe', 'janeD@gmail.com', current_timestamp, current_timestamp);
+insert into users (name, username, created_at, updated_at, disabled) values ('John Doe', 'johnD@gmail.com', current_timestamp, current_timestamp, false);
+insert into users (name, username, created_at, updated_at, disabled) values ('Jane Doe', 'janeD@gmail.com', current_timestamp, current_timestamp, false);
 
 insert into blogs (author, url, title, year, likes, created_at, updated_at, user_id) values ('Michael Chan', 'https://reactpatterns.com/', 'React patterns', 2014, 7, current_timestamp, current_timestamp, 1);
 insert into blogs (author, url, title, year, likes, created_at, updated_at, user_id) values ('Edsger W. Dijkstra', 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html', 'Go To Statement Considered Harmful', 2020, 5, current_timestamp, current_timestamp, 1);
