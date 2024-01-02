@@ -27,7 +27,7 @@ router.put("/:username", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const findUser = await User.findOne({
+  const queryArgs = {
     where: { id: req.params.id },
     include: {
       model: Blog,
@@ -35,9 +35,16 @@ router.get("/:id", async (req, res) => {
       attributes: { exclude: ["userId", "createdAt", "updatedAt"] },
       through: {
         attributes: ["id", "read"],
+        where: {},
       },
     },
-  });
+  };
+
+  if (req.query.read) {
+    queryArgs.include.through.where = { read: req.query.read };
+  }
+
+  const findUser = await User.findOne(queryArgs);
   res.json(findUser);
 });
 
